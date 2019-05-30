@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'dart:async';
 import 'package:notekeeper/db/note_helper.dart';
 import 'package:notekeeper/models/note.dart';
+import 'package:notekeeper/components/input_text.dart';
 
 class NoteDetail extends StatefulWidget {
   final String appBarTitle;
@@ -69,8 +70,16 @@ class _NoteDetailState extends State<NoteDetail> {
       child: ListView(
         children: <Widget>[
           dropdownList(_listPriority, _curPriority, textStyle),
-          inputText('Title', 'Your Note Title', titleController),
-          inputText('Description', 'Your Note Description', descController),
+          InputText(
+            controller: titleController,
+            hint: 'Your Note Title',
+            type: 'Title',
+          ),
+          InputText(
+            controller: descController,
+            hint: 'Your Note Description',
+            type: 'Description',
+          ),
           Row(
             children: <Widget>[
               Expanded(
